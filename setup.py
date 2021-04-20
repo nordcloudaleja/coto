@@ -16,11 +16,11 @@ setup(
     version = "0.2.5",
     packages = find_packages(),
     install_requires = [
-        'requests',
-        'furl',
-        'ansicolors',
-        'beautifulsoup4',
-        'pyotp',
+        'requests==2.24.0',
+        'furl==2.1.0',
+        'ansicolors==1.1.8',
+        'beautifulsoup4==4.9.3',
+        'pyotp==2.5.1',
     ],
     classifiers=[
         # How mature is this project? Common values are

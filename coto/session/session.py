@@ -120,6 +120,7 @@ class Session:
     def _get(self, url, **kwargs):
         self._set_defaults(kwargs)
         r = self.session.get(url, **kwargs)
+        print(r)
         if self.debug:
             dr(r)
         return r

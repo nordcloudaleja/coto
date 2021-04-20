@@ -46,6 +46,7 @@ class Client(BaseClient):
             bool: Signin succeeded.
         """
         r = self.session()._get(self.get_signin_url(boto3_session))
+        print(r)
         if r.status_code != 200:
             raise Exception("failed session signin")
 
@@ -87,11 +88,11 @@ class Client(BaseClient):
         Returns:
             bool: Signin succeeded.
         """
-        url = furl('https://signin.aws.amazon.com/federation')
+        url = furl('https://signin.amazonaws.cn/federation')
 
         url.args['Action'] = "login"
         url.args['Issuer'] = None
-        url.args['Destination'] = "https://console.aws.amazon.com/"
+        url.args['Destination'] = "https://console.amazonaws.cn/"
         url.args['SigninToken'] = self.get_signin_token(boto3_session)
 
         return url.url
@@ -119,7 +120,7 @@ class Client(BaseClient):
         """
         credentials = boto3_session.get_credentials()
 
-        url = "https://signin.aws.amazon.com/federation"
+        url = "https://signin.amazonaws.cn/federation"
         response = self.session()._get(
             url,
             params={
